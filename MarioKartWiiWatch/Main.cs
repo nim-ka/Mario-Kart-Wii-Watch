@@ -223,7 +223,7 @@ namespace WindowsFormsApp1
             lblCKPT.Text = string.Format("{0} ({1})", CKPT, KPT);
 
             float Race_Completion;
-            Race_Completion = BitConverter.ToSingle(mreader.ReadMemory((IntPtr)(0x7FFF0000 + (raceData2 - 0x80000000) + 0x1C), 4, out bytesOut), 0);
+            Race_Completion = BitConverter.ToSingle(mreader.ReadMemory((IntPtr)(0x7FFF0000 + (raceData2 - 0x80000000) + 0xC), 4, out bytesOut), 0);
             offsetbytes = BitConverter.GetBytes(Race_Completion);
             Array.Reverse(offsetbytes, 0, offsetbytes.Length);
             Race_Completion = BitConverter.ToSingle(offsetbytes, 0);
@@ -231,7 +231,7 @@ namespace WindowsFormsApp1
             lblRaceComp.Text = Race_Completion.ToString();
 
             float Lap_Completion;
-            Lap_Completion = BitConverter.ToSingle(mreader.ReadMemory((IntPtr)(0x7FFF0000 + (raceData2 - 0x80000000) + 0xC), 4, out bytesOut), 0);
+            Lap_Completion = BitConverter.ToSingle(mreader.ReadMemory((IntPtr)(0x7FFF0000 + (raceData2 - 0x80000000) + 0x1C), 4, out bytesOut), 0);
             offsetbytes = BitConverter.GetBytes(Lap_Completion);
             Array.Reverse(offsetbytes, 0, offsetbytes.Length);
             Lap_Completion = BitConverter.ToSingle(offsetbytes, 0);
